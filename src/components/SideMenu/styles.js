@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { DEVICE_BREAKPOINTS } from "../../styles/deviceBreakpoints";
+
 export const Container = styled.aside`
   grid-area: menu;
   background-color: ${({ theme }) => theme.COLORS.GRAY_700};
@@ -8,6 +10,11 @@ export const Container = styled.aside`
 
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${DEVICE_BREAKPOINTS.MD}) {
+    grid-area: none;
+    display: none;
+  }
 `;
 
 export const Header = styled.header`
@@ -72,12 +79,11 @@ export const Footer = styled.footer`
 `;
 
 export const Button = styled.button`
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
 
   > svg {
     font-size: 20px;
     color: ${({ theme }) => theme.COLORS.GRAY_300};
   }
 `;
-
