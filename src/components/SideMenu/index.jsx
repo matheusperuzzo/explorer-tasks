@@ -7,20 +7,20 @@ import {
   SignOut,
   X,
 } from "@phosphor-icons/react";
-
 import { Container, Footer, Nav, Title, Header, Button } from "./styles";
 
-export function SideMenu() {
+export function SideMenu({ menuIsOpen, onCloseMenu }) {
   return (
-    <Container>
+    <Container data-menu-is-open={menuIsOpen}>
       <Header>
         <Title>
           <CheckCircle /> e-Tasks
         </Title>
-
-        <Button type="button">
-          <X />
-        </Button>
+        {menuIsOpen && (
+          <Button type="button" onClick={onCloseMenu}>
+            <X />
+          </Button>
+        )}
       </Header>
 
       <Nav>
